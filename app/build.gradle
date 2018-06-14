@@ -1,0 +1,48 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: "androidx.navigation.safeargs"
+
+android {
+    // TODO ktx required compiling against android P
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.example.android.guesstheword"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.0.0-alpha3'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0-alpha1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0-alpha3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.0-alpha3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha3'
+
+    // TODO need to make sure -ktx
+    implementation "android.arch.navigation:navigation-fragment-ktx:1.0.0-alpha02" // use -ktx for Kotlin
+    implementation "android.arch.navigation:navigation-ui-ktx:1.0.0-alpha02" // use -ktx for Kotlin
+
+    // TODO needed to add this
+    implementation 'androidx.core:core-ktx:1.0.0-alpha3'
+
+}

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.example.android.guesstheword.ui.start.StartFragment"
+        android:label="start_fragment"
+        tools:layout="@layout/start_fragment" >
+        <action
+            android:id="@+id/action_start_to_game"
+            app:destination="@id/gameFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.example.android.guesstheword.ui.game.GameFragment"
+        android:label="game_fragment"
+        tools:layout="@layout/game_fragment" >
+        <action
+            android:id="@+id/action_game_to_score"
+            app:destination="@id/scoreFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:popUpTo="@+id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/scoreFragment"
+        android:name="com.example.android.guesstheword.ui.score.ScoreFragment"
+        android:label="score_fragment"
+        tools:layout="@layout/score_fragment" >
+        <action
+            android:id="@+id/action_restart"
+            app:destination="@+id/gameFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:popUpTo="@+id/startFragment"/>
+        <argument
+            android:name="score"
+            android:defaultValue="0"
+            app:type="integer" />
+    </fragment>
+</navigation>
