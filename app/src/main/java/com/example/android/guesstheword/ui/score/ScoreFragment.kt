@@ -23,15 +23,14 @@ class ScoreFragment : androidx.fragment.app.Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate view and obtain an instance of the binding class.
         val binding: ScoreFragmentBinding = DataBindingUtil.inflate(inflater, R.layout.score_fragment, container, false)
-        var root = binding.root
 
         viewModel = ViewModelProviders.of(this).get(ScoreViewModel::class.java)
         binding.scoreViewModel = viewModel
 
         // Specify the current activity as the lifecycle owner.
         binding.setLifecycleOwner(this)
-        return root
 
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -46,5 +45,4 @@ class ScoreFragment : androidx.fragment.app.Fragment() {
             }
         })
     }
-
 }

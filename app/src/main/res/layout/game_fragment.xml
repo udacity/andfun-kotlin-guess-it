@@ -2,7 +2,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <variable
             name="gameViewModel"
             type="com.example.android.guesstheword.ui.game.GameViewModel" />
@@ -15,12 +17,11 @@
         tools:context=".ui.game.GameFragment">
 
         <TextView
-            android:animateLayoutChanges="true"
             android:id="@+id/word"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            tools:text="Programming an App"
+            android:animateLayoutChanges="true"
             android:text="@{gameViewModel.word}"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             app:layout_constraintBottom_toTopOf="@+id/timer"
@@ -28,15 +29,16 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed" />
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Programming an App" />
 
         <Button
             android:id="@+id/skip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="Skip"
             android:onClick="@{gameViewModel::onSkipClicked}"
+            android:text="Skip"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/correct"
             app:layout_constraintHorizontal_bias="0.5"
@@ -51,11 +53,11 @@
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            tools:text="0:02"
-            app:time="@{gameViewModel.currentTime}"
             app:layout_constraintBottom_toTopOf="@+id/guideline"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:time="@{gameViewModel.currentTime}"
+            tools:text="0:02" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
@@ -69,8 +71,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:src="@android:drawable/checkbox_on_background"
             android:onClick="@{gameViewModel::onCorrectClicked}"
+            android:src="@android:drawable/checkbox_on_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"

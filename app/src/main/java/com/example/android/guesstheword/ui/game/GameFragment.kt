@@ -19,20 +19,18 @@ import com.example.android.guesstheword.databinding.GameFragmentBinding
 
 class GameFragment : androidx.fragment.app.Fragment() {
 
-
     companion object {
         fun newInstance() = GameFragment()
     }
 
-    val CORRECT_BUZZ_PATTERN = longArrayOf(100,100,100,100,100,100)
-    val PANIC_BUZZ_PATTERN = longArrayOf(0,200)
-    val GAMEOVER_BUZZ_PATTERN = longArrayOf(0,2000)
+    val CORRECT_BUZZ_PATTERN = longArrayOf(100, 100, 100, 100, 100, 100)
+    val PANIC_BUZZ_PATTERN = longArrayOf(0, 200)
+    val GAMEOVER_BUZZ_PATTERN = longArrayOf(0, 2000)
 
     private lateinit var viewModel: GameViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-
         viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
         // Inflate view and obtain an instance of the binding class.
         val binding: GameFragmentBinding = DataBindingUtil.inflate(inflater, R.layout.game_fragment, container, false)
@@ -62,20 +60,21 @@ class GameFragment : androidx.fragment.app.Fragment() {
                 when (buzzType) {
                     GameViewModel.BuzzType.CORRECT -> buzz(CORRECT_BUZZ_PATTERN)
                     GameViewModel.BuzzType.COUNTDOWN_PANIC -> buzz(PANIC_BUZZ_PATTERN)
-                    GameViewModel.BuzzType.GAMEOVER -> buzz(GAMEOVER_BUZZ_PATTERN)
+                    GameViewModel.BuzzType.GAME_OVER -> buzz(GAMEOVER_BUZZ_PATTERN)
                 }
             }
         })
     }
 
-    private fun buzz(pattern : LongArray){
+    private fun buzz(pattern: LongArray) {
         val buzzer = activity?.getSystemService<Vibrator>()
 
         buzzer?.let {
             // Vibrate for 500 milliseconds
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                buzzer.vibrate(VibrationEffect.createWaveform(pattern,-1))
+                buzzer.vibrate(VibrationEffect.createWaveform(pattern, -1))
             } else {
+                //TODO review this deprecated method
                 //deprecated in API 26
                 buzzer.vibrate(pattern, -1)
             }

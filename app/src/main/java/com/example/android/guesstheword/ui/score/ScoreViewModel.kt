@@ -13,14 +13,16 @@ class ScoreViewModel : ViewModel() {
         get() = _eventPlayAgainClicked
 
     private val _score = MutableLiveData<Int>()
-    val score : LiveData<Int>
-        get() { return _score}
+    val score: LiveData<Int>
+        get() {
+            return _score
+        }
 
     fun setScore(score: Int) {
         _score.value = score
     }
 
-    fun onPlayAgainClicked(view : View) {
+    fun onPlayAgainClicked(view: View) {
         _eventPlayAgainClicked.value = Event(true)
     }
 }
