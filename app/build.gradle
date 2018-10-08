@@ -59,5 +59,6 @@ dependencies {
     implementation "android.arch.navigation:navigation-fragment-ktx:1.0.0-rc02"
     implementation "android.arch.navigation:navigation-ui-ktx:1.0.0-rc02"
 
-    // TODO (01) Add lifecycle-extensions gradle
+    // Lifecycles
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
 }
