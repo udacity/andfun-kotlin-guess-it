@@ -18,7 +18,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO (04) Add a ScoreViewModel variable to the layout -->
+    <data>
+
+        <variable
+            name="scoreViewModel"
+            type="com.example.android.guesstheword.screens.score.ScoreViewModel" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/score_layout"
@@ -61,13 +66,12 @@
             app:layout_constraintVertical_chainStyle="packed"
             tools:text="40" />
 
-        <!-- TODO (05) Use the viewmodel variable to add onClick attributes for the button
-        that call the associated method in the ScoreViewModel -->
         <Button
             android:id="@+id/play_again_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
+            android:onClick="@{() -> scoreViewModel.onPlayAgain()}"
             android:text="@string/play_again"
             android:theme="@style/GoButton"
             app:layout_constraintBottom_toBottomOf="parent"
