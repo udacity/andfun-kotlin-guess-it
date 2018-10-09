@@ -18,6 +18,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.android.guesstheword">
 
+    <!-- TODO (01) Add the Vibrate permission -->
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_guess_it"
@@ -27,6 +29,8 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
+        <!-- TODO (02) You can also optionally lock the screen to landscape - copy over
+         the provided code-->
         <!-- Screen locked to landscape for easier play -->
         <!-- configChanges attribute makes the following actions NOT cause a config change  -->
         <!-- screenOrientation attribute sets the default animation-->
