@@ -35,6 +35,7 @@ class GameFragment : Fragment() {
 
     private lateinit var viewModel: GameViewModel
 
+    // TODO (01) Move over the word, score and wordList variables to the GameViewModel
     // The current word
     private var word = ""
 
@@ -61,9 +62,12 @@ class GameFragment : Fragment() {
         Log.i("GameFragment", "Called ViewModelProviders.of")
         viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
 
+        // TODO (03) Move over this initialization to the GameViewModel
         resetList()
         nextWord()
 
+        // TODO (04) Update these onClickListeners to refer to call methods in the ViewModel then
+        // update the UI
         binding.correctButton.setOnClickListener { onCorrect() }
         binding.skipButton.setOnClickListener { onSkip() }
         updateScoreText()
@@ -72,6 +76,7 @@ class GameFragment : Fragment() {
 
     }
 
+    // TODO (02) Move over methods resetList, nextWord, onSkip and onCorrect to the GameViewModel
     /**
      * Resets the list of words and randomizes the order
      */
@@ -138,6 +143,7 @@ class GameFragment : Fragment() {
 
     /** Methods for updating the UI **/
 
+    // TODO (05) Update these methods to get word and score from the viewmodel
     private fun updateWordText() {
         binding.wordText.text = word
 
