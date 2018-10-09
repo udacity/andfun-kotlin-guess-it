@@ -58,6 +58,7 @@ class ScoreFragment : Fragment() {
                 .get(ScoreViewModel::class.java)
 
         binding.scoreViewModel = viewModel
+        // TODO (05) Call binding.setLifecycleOwner and remove the score observer
 
         // Add observer for score
         viewModel.score.observe(this, Observer { newScore ->
