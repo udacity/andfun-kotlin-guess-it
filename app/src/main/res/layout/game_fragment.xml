@@ -67,6 +67,7 @@
             app:layout_constraintVertical_chainStyle="packed"
             tools:text="&quot;Tuna&quot;" />
 
+        <!-- TODO (03) Set the text attribute of timer_text to the value of currentTimeString -->
         <TextView
             android:id="@+id/timer_text"
             android:layout_width="wrap_content"

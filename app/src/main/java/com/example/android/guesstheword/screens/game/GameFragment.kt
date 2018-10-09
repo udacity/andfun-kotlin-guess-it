@@ -60,6 +60,7 @@ class GameFragment : Fragment() {
         // the binding can observe LiveData updates
         binding.setLifecycleOwner(this)
 
+        // TODO (04) Now you can delete this observer
         viewModel.currentTime.observe(this, Observer { newTime ->
             binding.timerText.text = DateUtils.formatElapsedTime(newTime)
 
