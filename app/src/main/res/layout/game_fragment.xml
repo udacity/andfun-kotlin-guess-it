@@ -18,6 +18,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- TODO (01) Add a GameViewModel variable to the layout -->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/game_layout"
         android:layout_width="match_parent"
@@ -90,6 +92,8 @@
             app:layout_constraintStart_toStartOf="parent"
             tools:text="Score: 2" />
 
+        <!-- TODO (02) Use the viewmodel variable to add onClick attributes for both buttons
+        that call the associated methods in the GameViewModel -->
         <Button
             android:id="@+id/skip_button"
             android:layout_width="wrap_content"

@@ -52,6 +52,8 @@ class GameFragment : Fragment() {
         // Get the viewmodel
         viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
 
+        // TODO (03) Pass the GameViewModel into the data binding - then you can remove the
+        // OnClickListener setup from here
         binding.correctButton.setOnClickListener {
             viewModel.onCorrect()
         }
