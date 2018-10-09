@@ -67,6 +67,11 @@ class GameFragment : Fragment() {
             binding.scoreText.text = newScore.toString()
         })
 
+        // TODO (04) Add an observer of eventGameFinish which, when eventGameFinish is true,
+        // performs the code in gameFinished()
+        // Make sure to call onGameFinishCompete to tell your viewmodel that the game finish event
+        // was dealt with
+
         return binding.root
 
     }
