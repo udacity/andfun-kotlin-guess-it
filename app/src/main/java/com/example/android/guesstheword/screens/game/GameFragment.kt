@@ -67,22 +67,18 @@ class GameFragment : Fragment() {
             binding.scoreText.text = newScore.toString()
         })
 
-        // TODO (04) Add an observer of eventGameFinish which, when eventGameFinish is true,
-        // performs the code in gameFinished()
-        // Make sure to call onGameFinishCompete to tell your viewmodel that the game finish event
-        // was dealt with
+        // Sets up event listening to navigate the player when the game is finished
+        viewModel.eventGameFinish.observe(this, Observer { isFinished ->
+            if (isFinished) {
+                val currentScore = viewModel.score.value ?: 0
+                val action = GameFragmentDirections.actionGameToScore(currentScore)
+                findNavController(this).navigate(action)
+                viewModel.onGameFinishComplete()
+            }
+        })
 
         return binding.root
 
-    }
-
-    /**
-     * Called when the game is finished
-     */
-    fun gameFinished() {
-        val currentScore = viewModel.score.value ?: 0
-        val action = GameFragmentDirections.actionGameToScore(currentScore)
-        findNavController(this).navigate(action)
     }
 
 }
