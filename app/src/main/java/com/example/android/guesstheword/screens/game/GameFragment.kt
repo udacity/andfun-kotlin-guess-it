@@ -53,6 +53,9 @@ class GameFragment : Fragment() {
                 false
         )
 
+        // TODO (04) Create and initialize a GameViewModel, using ViewModelProviders; Add a log
+        // statement
+
         resetList()
         nextWord()
 
