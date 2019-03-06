@@ -26,6 +26,13 @@ import androidx.lifecycle.ViewModel
  */
 class GameViewModel : ViewModel() {
 
+    // TODO (01) Copy over the provided companion object with the timer constants
+
+    // TODO (02) Create a timer field of type CountDownTimer
+
+    // TODO (03) Create a properly encapsulated LiveData for the current time called currentTime
+    // Its type should be Long
+
     // The current word
     private val _word = MutableLiveData<String>()
     val word: LiveData<String>
@@ -50,6 +57,9 @@ class GameViewModel : ViewModel() {
         resetList()
         nextWord()
         _score.value = 0
+
+        // TODO (04) Copy over the CountDownTimer code and then update currentTime and
+        // eventGameFinish appropriately as the timer ticks and finishes
     }
 
     /**
@@ -88,6 +98,8 @@ class GameViewModel : ViewModel() {
     private fun nextWord() {
         //Select and remove a word from the list
         if (wordList.isEmpty()) {
+            // TODO (05) Update this logic so that the game doesn't finish;
+            // Instead the list is reset and re-shuffled when you run out of words
             _eventGameFinish.value = true
         } else {
             _word.value = wordList.removeAt(0)
@@ -111,5 +123,7 @@ class GameViewModel : ViewModel() {
     fun onGameFinishComplete() {
         _eventGameFinish.value = false
     }
+
+    // TODO (06) Cancel the timer in onCleared
 
 }
