@@ -36,6 +36,22 @@ class GameFragment : Fragment() {
     private lateinit var viewModel: GameViewModel
 
     private lateinit var binding: GameFragmentBinding
+    
+    
+ override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        // Get the viewmodel
+        viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
+
+        viewModel.score.observe(this, Observer { newScore ->
+            binding.scoreText.text = newScore.toString()
+        })
+
+        viewModel.word.observe(this, Observer { newWord ->
+            binding.wordText.text = newWord
+        })
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -47,25 +63,14 @@ class GameFragment : Fragment() {
                 container,
                 false
         )
-
-        // Get the viewmodel
-        viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
-
         binding.correctButton.setOnClickListener {
             viewModel.onCorrect()
+
         }
         binding.skipButton.setOnClickListener {
             viewModel.onSkip()
+
         }
-
-        /** Setting up LiveData observation relationship **/
-        viewModel.word.observe(this, Observer { newWord ->
-            binding.wordText.text = newWord
-        })
-
-        viewModel.score.observe(this, Observer { newScore ->
-            binding.scoreText.text = newScore.toString()
-        })
 
         return binding.root
 
