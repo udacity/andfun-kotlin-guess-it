@@ -132,7 +132,6 @@ class GameFragment : Fragment() {
 
     private fun updateWordText() {
         binding.wordText.text = word
-
     }
 
     private fun updateScoreText() {
