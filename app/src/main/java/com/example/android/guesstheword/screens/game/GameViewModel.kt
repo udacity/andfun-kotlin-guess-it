@@ -1,8 +1,6 @@
 package com.example.android.guesstheword.screens.game
 
 import android.os.CountDownTimer
-import android.text.format.DateUtils
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -33,7 +31,6 @@ class GameViewModel : ViewModel() {
     private lateinit var wordList: MutableList<String>
 
     init {
-        Log.d("some", "GameViewModel created!")
         resetList()
         nextWord()
         _score.value = 0
@@ -54,7 +51,6 @@ class GameViewModel : ViewModel() {
 
     override fun onCleared() {
         super.onCleared()
-        Log.d("some", "GameViewModel destroyed!")
         timer.cancel()
     }
 
@@ -125,6 +121,6 @@ class GameViewModel : ViewModel() {
         const val ONE_SECOND = 1_000L
 
         // This is the total time of the game
-        const val COUNTDOWN_TIME = 10_000L
+        const val COUNTDOWN_TIME = 60_000L
     }
 }
