@@ -18,6 +18,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.android.guesstheword">
 
+    <!-- Permission needed for haptic feedback -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_guess_it"
@@ -30,7 +33,8 @@
         <!-- Screen locked to landscape for easier play -->
         <!-- configChanges attribute makes the following actions NOT cause a config change  -->
         <!-- screenOrientation attribute sets the default animation-->
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

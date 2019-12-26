@@ -17,6 +17,10 @@ class GameViewModel : ViewModel() {
     val score: LiveData<Int>
         get() = _score
 
+    // The list of words - the front of the list is the next word to guess
+    private lateinit var wordList: MutableList<String>
+
+    // Event which triggers the end of the game
     private val _eventGameFinish = MutableLiveData<Boolean>()
     val eventGameFinish: LiveData<Boolean>
         get() = _eventGameFinish
@@ -26,9 +30,6 @@ class GameViewModel : ViewModel() {
     private val _currentTime = MutableLiveData<Long>()
     val currentTime: LiveData<Long>
         get() = _currentTime
-
-    // The list of words - the front of the list is the next word to guess
-    private lateinit var wordList: MutableList<String>
 
     init {
         resetList()
@@ -47,11 +48,6 @@ class GameViewModel : ViewModel() {
             }
         }
         timer.start()
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        timer.cancel()
     }
 
     /**
@@ -122,5 +118,10 @@ class GameViewModel : ViewModel() {
 
         // This is the total time of the game
         const val COUNTDOWN_TIME = 10_000L
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        timer.cancel()
     }
 }

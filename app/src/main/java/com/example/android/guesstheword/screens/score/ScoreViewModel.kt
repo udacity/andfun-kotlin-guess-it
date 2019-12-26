@@ -1,10 +1,12 @@
 package com.example.android.guesstheword.screens.score
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
+/**
+ * ViewModel for the final screen showing the score
+ */
 class ScoreViewModel(finalScore: Int) : ViewModel() {
 
     private val _eventPlayAgain = MutableLiveData<Boolean>()
@@ -16,7 +18,6 @@ class ScoreViewModel(finalScore: Int) : ViewModel() {
         get() = _score
 
     init {
-        Log.d("some", "final score: $finalScore")
         _score.value = finalScore
     }
 
