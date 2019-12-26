@@ -56,7 +56,6 @@ class ScoreFragment : Fragment() {
             }
         })
 
-
         return binding.root
     }
 }

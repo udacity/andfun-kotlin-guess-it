@@ -24,22 +24,16 @@
         android:layout_height="match_parent"
         tools:context=".screens.score.ScoreFragment">
 
-        <TextView
-            android:id="@+id/you_scored_text"
+        <Button
+            android:id="@+id/play_again_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:fontFamily="sans-serif"
-            android:text="@string/you_scored"
-            android:textColor="@color/black_text_color"
-            android:textSize="14sp"
-            android:textStyle="normal"
-            app:layout_constraintBottom_toTopOf="@+id/score_text"
+            android:layout_marginBottom="32dp"
+            android:text="@string/play_again"
+            android:theme="@style/GoButton"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/score_text"
@@ -59,16 +53,22 @@
             app:layout_constraintVertical_chainStyle="packed"
             tools:text="40" />
 
-        <Button
-            android:id="@+id/play_again_button"
+        <TextView
+            android:id="@+id/you_scored_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:text="@string/play_again"
-            android:theme="@style/GoButton"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="32dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/you_scored"
+            android:textColor="@color/black_text_color"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toTopOf="@+id/score_text"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
