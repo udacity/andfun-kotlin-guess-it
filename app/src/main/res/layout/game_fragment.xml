@@ -118,6 +118,7 @@
             android:textColor="@color/black_text_color"
             android:textSize="34sp"
             android:textStyle="normal"
+            android:text="@{gameViewModel.word}"
             app:layout_constraintBottom_toTopOf="@+id/score_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
