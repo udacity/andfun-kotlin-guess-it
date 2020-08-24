@@ -47,7 +47,7 @@ class ScoreFragment : Fragment() {
         )
 
         // TODO (04) Create and construct a ScoreViewModelFactory
-        // TODO (05) Create ScoreViewModel by using ViewModelProviders.of as usual, except also
+        // TODO (05) Create ScoreViewModel by using ViewModelProvider as usual, except also
         // pass in your ScoreViewModelFactory
 
         // Get args using by navArgs property delegate
