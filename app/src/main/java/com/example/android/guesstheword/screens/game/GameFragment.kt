@@ -53,7 +53,7 @@ class GameFragment : Fragment() {
                 false
         )
 
-        // TODO (04) Create and initialize a GameViewModel, using ViewModelProviders; Add a log
+        // TODO (04) Create and initialize a GameViewModel, using ViewModelProvider; Add a log
         // statement
 
         resetList()
