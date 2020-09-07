@@ -27,6 +27,7 @@ import androidx.core.content.getSystemService
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.example.android.guesstheword.R
 import com.example.android.guesstheword.databinding.GameFragmentBinding
@@ -63,7 +64,7 @@ class GameFragment : Fragment() {
         binding.setLifecycleOwner(this)
 
         // Sets up event listening to navigate the player when the game is finished
-        viewModel.eventGameFinish.observe(this, Observer { isFinished ->
+        viewModel.eventGameFinish.observe(viewLifecycleOwner, Observer { isFinished ->
             if (isFinished) {
                 val currentScore = viewModel.score.value ?: 0
                 val action = GameFragmentDirections.actionGameToScore(currentScore)
@@ -73,7 +74,7 @@ class GameFragment : Fragment() {
         })
 
         // Buzzes when triggered with different buzz events
-        viewModel.eventBuzz.observe(this, Observer { buzzType ->
+        viewModel.eventBuzz.observe(viewLifecycleOwner, Observer { buzzType ->
             if (buzzType != GameViewModel.BuzzType.NO_BUZZ) {
                 buzz(buzzType.pattern)
                 viewModel.onBuzzComplete()
