@@ -71,7 +71,7 @@ class GameFragment : Fragment() {
         // You can use DateUtils.formatElapsedTime to correctly format the long to a time string
 
         // Sets up event listening to navigate the player when the game is finished
-        viewModel.eventGameFinish.observe(this, Observer { isFinished ->
+        viewModel.eventGameFinish.observe(viewLifecycleOwner, Observer { isFinished ->
             if (isFinished) {
                 val currentScore = viewModel.score.value ?: 0
                 val action = GameFragmentDirections.actionGameToScore(currentScore)
