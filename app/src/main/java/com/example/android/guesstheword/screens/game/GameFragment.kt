@@ -73,7 +73,7 @@ class GameFragment : Fragment() {
         })
 
         // Buzzes when triggered with different buzz events
-        viewModel.eventBuzz.observe(this, Observer { buzzType ->
+        viewModel.eventBuzz.observe(viewLifecycleOwner, Observer { buzzType ->
             if (buzzType != GameViewModel.BuzzType.NO_BUZZ) {
                 buzz(buzzType.pattern)
                 viewModel.onBuzzComplete()
