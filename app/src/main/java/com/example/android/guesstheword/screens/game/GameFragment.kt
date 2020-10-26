@@ -16,15 +16,16 @@
 
 package com.example.android.guesstheword.screens.game
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.example.android.guesstheword.R
 import com.example.android.guesstheword.databinding.GameFragmentBinding
 
@@ -37,6 +38,7 @@ class GameFragment : Fragment() {
 
     private lateinit var binding: GameFragmentBinding
 
+    @SuppressLint("FragmentLiveDataObserve")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
@@ -67,10 +69,12 @@ class GameFragment : Fragment() {
             binding.scoreText.text = newScore.toString()
         })
 
-        // TODO (04) Add an observer of eventGameFinish which, when eventGameFinish is true,
-        // performs the code in gameFinished()
-        // Make sure to call onGameFinishCompete to tell your viewmodel that the game finish event
-        // was dealt with
+        viewModel.evenGameFinish.observe(this, Observer { hasFinished ->
+            if (hasFinished) {
+                gameFinished()
+                viewModel.onGameFinishComplete()
+            }
+        })
 
         return binding.root
 
@@ -79,10 +83,11 @@ class GameFragment : Fragment() {
     /**
      * Called when the game is finished
      */
-    fun gameFinished() {
-        val currentScore = viewModel.score.value ?: 0
-        val action = GameFragmentDirections.actionGameToScore(currentScore)
-        findNavController(this).navigate(action)
+    private fun gameFinished() {
+//        val currentScore = viewModel.score.value ?: 0
+//        val action = GameFragmentDirections.actionGameToScore(currentScore)
+//        findNavController(this).navigate(action)
+        Toast.makeText(this.activity, "Game has Finished", Toast.LENGTH_SHORT).show()
     }
 
 }

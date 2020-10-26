@@ -26,9 +26,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.android.guesstheword.R
 import com.example.android.guesstheword.databinding.TitleFragmentBinding
 
-/**
- * Fragment for the starting or title screen of the app
- */
+
 class TitleFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
