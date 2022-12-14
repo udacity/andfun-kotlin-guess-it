@@ -48,7 +48,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed" />
 
-        <!-- TODO (04) Use the LiveData from ScoreViewModel to set the score_text text attribute -->
         <TextView
             android:id="@+id/score_text"
             android:layout_width="wrap_content"
@@ -58,6 +57,7 @@
             android:fontFamily="sans-serif"
             android:textColor="@color/black_text_color"
             android:textSize="34sp"
+            android:text="@{scoreViewModel.score.toString()}"
             android:textStyle="normal"
             app:layout_constraintBottom_toTopOf="@+id/play_again_button"
             app:layout_constraintEnd_toEndOf="parent"
