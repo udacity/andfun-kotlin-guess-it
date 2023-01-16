@@ -16,7 +16,6 @@
 
 package com.example.android.guesstheword.screens.game
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
@@ -26,32 +25,27 @@ import androidx.lifecycle.ViewModel
  */
 class GameViewModel : ViewModel() {
 
-    // DONE (01) Make an internal and external version of the word and score
+    // TODO (01) Make an internal and external version of the word and score
     // The internal version should be a MutableLiveData, have an underscore in front of its' name
     // and be private
     // The external version should be a LiveData
-    // DONE (02) Make a backing property for the external version that returns the internal
+    // TODO (02) Make a backing property for the external version that returns the internal
     // MutableLiveData as a LiveData
 
     // The current word
-    private val _word = MutableLiveData<String>()
-    val word: LiveData<String>
-        get() = _word
-
+    val word = MutableLiveData<String>()
 
     // The current score
-    private val _score = MutableLiveData<Int>()
-    val score: LiveData<Int>
-        get() = _score
+    val score = MutableLiveData<Int>()
 
     // The list of words - the front of the list is the next word to guess
     private lateinit var wordList: MutableList<String>
 
-    // DONE (03) Use the internal version (the MutableLiveData) of _score and _word in this class
+    // TODO (03) Use the internal version (the MutableLiveData) of _score and _word in this class
     init {
         resetList()
         nextWord()
-        _score.value = 0
+        score.value = 0
     }
 
     /**
@@ -92,19 +86,19 @@ class GameViewModel : ViewModel() {
         if (wordList.isEmpty()) {
             // gameFinished() should happen here
         } else {
-            _word.value = wordList.removeAt(0)
+            word.value = wordList.removeAt(0)
         }
     }
 
     /** Methods for buttons presses **/
 
     fun onSkip() {
-        _score.value = (score.value)?.minus(1)
+        score.value = (score.value)?.minus(1)
         nextWord()
     }
 
     fun onCorrect() {
-        _score.value = (score.value)?.plus(1)
+        score.value = (score.value)?.plus(1)
         nextWord()
     }
 }
