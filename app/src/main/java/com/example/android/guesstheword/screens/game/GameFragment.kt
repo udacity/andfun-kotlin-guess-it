@@ -22,7 +22,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.NavHostFragment.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.android.guesstheword.R
 import com.example.android.guesstheword.databinding.GameFragmentBinding
 
@@ -94,12 +94,17 @@ class GameFragment : Fragment() {
         wordList.shuffle()
     }
 
+
+
+
     /**
      * Called when the game is finished
      */
     private fun gameFinished() {
-        val action = GameFragmentDirections.actionGameToScore(score)
-        findNavController(this).navigate(action)
+        val action = GameFragmentDirections.actionGameToScore()
+        action.score = score
+
+        this.findNavController().navigate(action)
     }
 
     /**
